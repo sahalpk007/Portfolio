@@ -183,11 +183,9 @@ const Hero = () => {
                       scale: [0.8, 1.2, 0.8], // Simplified scale animation
                       opacity: [0.4, 1, 0.4],
                     }}
-                      opacity: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2,
+                    transition={{
+                      rotate: { duration: 2, repeat: Infinity, ease: "linear" },
+                      scale: { duration: 2, repeat: Infinity, ease: "easeInOut", delay: i * 0.1 },
                       },
                     }}
                     initial={{
