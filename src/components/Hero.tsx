@@ -72,15 +72,15 @@ const Hero = () => {
             className="absolute"
             initial={{
               x:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1920), // Use window.innerWidth if defined
+ Math.random() *
+                (typeof window !== "undefined" ? window.innerWidth : 1920), // Use window.innerWidth if defined,
+ y:
                 Math.random() *
                 (typeof window !== "undefined" ? window.innerHeight : 1080), // Use window.innerHeight if defined
               scale: 0.3 + Math.random() * 0.7,
             }}
             animate={{
-              x:
-                Math.random() *
+ x: Math.random() *
                 (typeof window !== "undefined" ? window.innerWidth : 1920),
                 Math.random() *
               rotate: 360,
