@@ -156,7 +156,7 @@ const Hero = () => {
                       transition={{ type: "spring", stiffness: 400 }}
                     >
                       <img
-                        src="/mspk_profile1.jpg"
+                        src="/mspk_profile1.webp"
                         alt="Muhammed Sahal P K"
                         className="w-full h-full object-cover object-center rounded-full max-w-full max-h-full border-2 border-purple-500"
                         style={{ objectPosition: "center center" }}

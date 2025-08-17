@@ -89,19 +89,17 @@ function App() {
                     initial={{
                       x: Math.random() * window.innerWidth,
                       y: Math.random() * window.innerHeight,
-                      rotate: 0,
-                      scale: 0.3 + Math.random() * 0.7,
+                      opacity: 0, // Initial opacity
+                      scale: 0.3, // Initial scale
                     }}
                     animate={{
                       x: Math.random() * window.innerWidth,
                       y: Math.random() * window.innerHeight,
-                      rotate: 360,
-                      scale: [0.3, 1.2, 0.3],
+                      opacity: [0, 0.5, 0], // Animate opacity
+                      scale: [0.3, 1, 0.3], // Animate scale
                     }}
                     transition={{
                       duration: 15 + Math.random() * 10,
-                      repeat: Infinity,
-                      ease: "linear",
                       delay: Math.random() * 5,
                     }}
                   >

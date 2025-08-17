@@ -255,7 +255,7 @@ const About = () => {
                       transition={{ type: "spring", stiffness: 400 }}
                     >
                       <img
-                        src="/mspk_profile1.jpg"
+                        src="/mspk_profile1.webp"
                         alt="Muhammed Sahal P K"
                         className="w-full h-full object-cover object-center"
                         style={{ objectPosition: 'center center' }}
