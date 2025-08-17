@@ -288,12 +288,11 @@ const About = () => {
  scale: [0.8, 1.2, 0.8], // Simplified scale animation
                       opacity: [0.4, 1, 0.4]
                     }}
-                    transition={{
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2
-                      }
-                    }}
+ transition={{
+ repeat: Infinity,
+ ease: "easeInOut",
+ delay: i * 0.2
+ }}
                     initial={{
                       x: Math.cos((i * 45) * Math.PI / 180) * (typeof window !== 'undefined' && window.innerWidth > 768 ? 120 : 100),
                       y: Math.sin((i * 45) * Math.PI / 180) * (typeof window !== 'undefined' && window.innerWidth > 768 ? 120 : 100),
