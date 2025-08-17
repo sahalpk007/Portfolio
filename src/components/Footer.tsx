@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Linkedin, Mail, ArrowUp} from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -35,6 +35,19 @@ const Footer = () => {
     }
   ];
 
+  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollToTopButton(window.scrollY > 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId.replace('#', ''));
     if (element) {
@@ -50,12 +63,6 @@ const Footer = () => {
     <footer className="relative bg-black border-t border-white/10">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-900/50 to-transparent"></div>
-      <motion.div
-        className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
-        animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
-
       <div className="container mx-auto px-6 py-12 relative z-10">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
@@ -82,11 +89,7 @@ const Footer = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-10 h-10 bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center text-gray-400 ${social.color} transition-all duration-300`}
-                      whileHover={{ 
-                        scale: 1.1, 
-                        y: -3,
-                        boxShadow: "0 8px 25px rgba(147, 51, 234, 0.3)"
-                      }}
+ whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +121,7 @@ const Footer = () => {
                     <motion.button
                       onClick={() => scrollToSection(link.href)}
                       className="text-gray-400 hover:text-purple-400 transition-colors duration-300 text-left text-sm"
-                      whileHover={{ x: 3 }}
+                      whileHover={{ scale: 1.05 }}
                       data-cursor="pointer"
                     >
                       {link.label}
@@ -138,15 +141,13 @@ const Footer = () => {
               <div className="space-y-2 text-gray-400 text-sm">
                 <motion.p
                   whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 300 }}
                 >
                   Kerala, India
                 </motion.p>
                 <motion.a
                   href="mailto:muhammedsahalpk.official@gmail.com"
                   className="block hover:text-purple-400 transition-colors duration-300"
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+ whileHover={{ scale: 1.05 }}
                   data-cursor="pointer"
                 >
                   muhammedsahalpk.official@gmail.com
@@ -154,8 +155,7 @@ const Footer = () => {
                 <motion.a
                   href="tel:+917025788341"
                   className="block hover:text-purple-400 transition-colors duration-300"
-                  whileHover={{ x: 3 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+ whileHover={{ scale: 1.05 }}
                   data-cursor="pointer"
                 >
                   +91 70257 88341
@@ -182,18 +182,22 @@ const Footer = () => {
           </motion.div>
 
           {/* Scroll to Top Button */}
-          <motion.button
-            onClick={scrollToTop}
-            className="fixed bottom-6 right-6 w-10 h-10 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300"
-            whileHover={{ scale: 1.1, y: -2 }}
-            whileTap={{ scale: 0.9 }}
-            initial={{ opacity: 0, y: 100 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1 }}
-            data-cursor="pointer"
-          >
-            <ArrowUp size={18} />
-          </motion.button>
+          <AnimatePresence>
+            {showScrollToTopButton && (
+              <motion.button
+                onClick={scrollToTop}
+                className="fixed bottom-6 right-6 w-10 h-10 bg-gradient-to-r from-purple-600 to-cyan-600 rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -2 }}
+                whileTap={{ scale: 0.9 }}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 100 }}
+                data-cursor="pointer"
+              >
+                <ArrowUp size={18} />
+              </motion.button>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </footer>

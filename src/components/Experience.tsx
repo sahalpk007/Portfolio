@@ -56,13 +56,6 @@ const Experience = () => {
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
 
-      {/* Animated Background Elements */}
-      <motion.div
-        className="absolute top-1/3 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
-        animate={{ x: [0, -50, 0], y: [0, 50, 0] }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
-
       <div
         className="container mx-auto px-2 sm:px-6 lg:px-8 relative z-10 w-full"
         ref={ref}
@@ -133,20 +126,6 @@ const Experience = () => {
                   <stop offset="0.5" stopColor="#22d3ee" />
                   <stop offset="1" stopColor="#ec4899" />
                 </linearGradient>
-                <filter
-                  id="glow"
-                  x="-20"
-                  y="-20"
-                  width="80"
-                  height="1040"
-                  filterUnits="userSpaceOnUse"
-                >
-                  <feGaussianBlur stdDeviation="6" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
               </defs>
               <path
                 d="M20 0

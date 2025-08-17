@@ -268,14 +268,8 @@ const Skills = () => {
                     <span className="text-white font-semibold text-sm sm:text-base group-hover:text-blue-300 transition-colors duration-300">
                       {skill.name}
                     </span>
-                    <motion.span
-                      className="text-gray-400 font-medium text-xs sm:text-sm"
-                      animate={{ scale: [1, 1.1, 1] }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: index * 0.2,
-                      }}
+                    <span
+                      className=\"text-gray-400 font-medium text-xs sm:text-sm\"
                     >
                       {skill.level}%
                     </motion.span>
@@ -291,29 +285,7 @@ const Skills = () => {
                         duration: 1.5,
                         ease: "easeOut",
                       }}
-                    >
-                      {/* Animated shimmer */}
-                      <motion.div
-                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                        animate={{ x: ["-100%", "100%"] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          repeatDelay: 3,
-                        }}
-                      />
-
-                      {/* Glow effect */}
-                      <motion.div
-                        className={`absolute inset-0 bg-gradient-to-r ${skill.color} blur-sm opacity-50`}
-                        animate={{ opacity: [0.3, 0.7, 0.3] }}
-                        transition={{
-                          duration: 2,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                        }}
-                      />
-                    </motion.div>
+                    ></motion.div>
                   </div>
                 </motion.div>
               ))}

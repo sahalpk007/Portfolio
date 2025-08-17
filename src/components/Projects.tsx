@@ -106,20 +106,6 @@ const Projects = () => {
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
 
-      {/* Animated mesh gradients */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        animate={{
-          background: [
-            "radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 70% 70%, rgba(147, 51, 234, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 30% 70%, rgba(6, 182, 212, 0.3) 0%, transparent 50%)",
-            "radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)",
-          ],
-        }}
-        transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
         ref={ref}
@@ -207,18 +193,15 @@ const Projects = () => {
                   {/* Project Image */}
                   <div className="relative overflow-hidden h-48 sm:h-56 md:h-64">
                     <motion.img
+                      // Removed image scaling animation on hover
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-cover"
                     />
-
-                    {/* Gradient overlay */}
-                    <motion.div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     {/* Rating badge */}
                     <motion.div
                       className="absolute top-3 sm:top-4 right-3 sm:right-4 flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2 sm:px-3 py-1 rounded-full"
-                      initial={{ opacity: 0, scale: 0 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.5 }}
                     >
@@ -310,17 +293,6 @@ const Projects = () => {
                     whileHover={{ y: -5, scale: 1.02 }}
                     data-cursor="pointer"
                   >
-                    {/* Shimmer effect */}
-                    <motion.div
-                      className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent opacity-0 group-hover:opacity-100"
-                      animate={{ x: ["-100%", "100%"] }}
-                      transition={{
-                        duration: 1.5,
-                        repeat: Infinity,
-                        repeatDelay: 2,
-                      }}
-                    />
-
                     <div className="flex justify-between items-start mb-3 sm:mb-4 relative z-10">
                       <h4 className="text-lg sm:text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300">
                         {project.title}

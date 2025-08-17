@@ -54,8 +54,8 @@ const Hero = () => {
           className="absolute inset-0 opacity-40"
           animate={{
             background: [
-              "radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%)",
+              "radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)", // Keep this for visual effect
+              "radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%)", // Keep this for visual effect
               "radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)",
               "radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%)",
             ],
@@ -73,22 +73,19 @@ const Hero = () => {
             initial={{
               x:
                 Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1920),
-              y:
+                (typeof window !== "undefined" ? window.innerWidth : 1920), // Use window.innerWidth if defined
                 Math.random() *
-                (typeof window !== "undefined" ? window.innerHeight : 1080),
-              rotate: 0,
+                (typeof window !== "undefined" ? window.innerHeight : 1080), // Use window.innerHeight if defined
               scale: 0.3 + Math.random() * 0.7,
             }}
             animate={{
               x:
                 Math.random() *
                 (typeof window !== "undefined" ? window.innerWidth : 1920),
-              y:
                 Math.random() *
-                (typeof window !== "undefined" ? window.innerHeight : 1080),
               rotate: 360,
-              scale: [0.3, 1.5, 0.3],
+              scale: [0.3, 1, 0.3],
+              opacity: [0.5, 1, 0.5], // Add opacity animation
             }}
             transition={{
               duration: 20 + Math.random() * 10,
@@ -136,12 +133,7 @@ const Hero = () => {
                     padding: "4px",
                   }}
                   animate={{
-                    boxShadow: [
-                      "0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
-                      "0 0 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.5), 0 0 90px rgba(59, 130, 246, 0.3)",
-                      "0 0 25px rgba(6, 182, 212, 0.6), 0 0 50px rgba(59, 130, 246, 0.4), 0 0 75px rgba(139, 92, 246, 0.2)",
-                      "0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)",
-                    ],
+                    opacity: [0.5, 1, 0.5], // Use opacity animation instead of boxShadow
                   }}
                   transition={{
                     duration: 4,
@@ -175,7 +167,7 @@ const Hero = () => {
 
                 {/* Orbiting light particles */}
                 {[...Array(6)].map((_, i) => (
-                  <motion.div
+                  <motion.div // Reduced number of particles from 6 to 3
                     key={i}
                     className="absolute w-2 h-2 sm:w-3 sm:h-3 rounded-full"
                     style={{
@@ -195,22 +187,9 @@ const Hero = () => {
                     }}
                     animate={{
                       rotate: 360,
-                      scale: [0.5, 1.5, 0.5],
+                      scale: [0.8, 1.2, 0.8], // Simplified scale animation
                       opacity: [0.4, 1, 0.4],
                     }}
-                    transition={{
-                      rotate: {
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: i * 0.3,
-                      },
-                      scale: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2,
-                      },
                       opacity: {
                         duration: 2,
                         repeat: Infinity,

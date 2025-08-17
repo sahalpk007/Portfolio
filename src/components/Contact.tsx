@@ -112,18 +112,6 @@ const Contact = () => {
     <section id="contact" className="py-24 relative overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
-      
-      {/* Animated Background Elements */}
-      <motion.div
-        className="absolute top-1/4 left-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
-        animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
-        transition={{ duration: 25, repeat: Infinity }}
-      />
-      <motion.div
-        className="absolute bottom-1/4 right-0 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"
-        animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
 
       <div className="container mx-auto px-6 relative z-10" ref={ref}>
         <motion.div
@@ -196,11 +184,8 @@ const Contact = () => {
                     key={index}
                     href={info.href}
                     className="group flex items-center gap-4 p-4 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl hover:border-purple-500/50 transition-all duration-500"
-                    whileHover={{ x: 8, scale: 1.02 }}
-                    initial={{ opacity: 0, x: -50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
                     data-cursor="pointer"
+
                   >
                     <motion.div
                       className={`w-12 h-12 bg-gradient-to-br ${info.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
@@ -239,15 +224,6 @@ const Contact = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-12 h-12 bg-gradient-to-br from-gray-800/50 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl flex items-center justify-center text-gray-400 hover:border-purple-500/50 transition-all duration-300"
-                      whileHover={{ 
-                        scale: 1.1, 
-                        y: -5,
-                        boxShadow: "0 8px 25px rgba(147, 51, 234, 0.3)"
-                      }}
-                      whileTap={{ scale: 0.9 }}
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
                       data-cursor="pointer"
                     >
                       <social.icon size={20} />
@@ -278,8 +254,6 @@ const Contact = () => {
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid md:grid-cols-2 gap-4">
                       <motion.div
-                        whileFocus={{ scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 300 }}
                       >
                         <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
                           Your Name *
@@ -296,8 +270,6 @@ const Contact = () => {
                         />
                       </motion.div>
                       <motion.div
-                        whileFocus={{ scale: 1.02 }}
-                        transition={{ type: "spring", stiffness: 300 }}
                       >
                         <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
                           Email Address *
@@ -316,8 +288,6 @@ const Contact = () => {
                     </div>
 
                     <motion.div
-                      whileFocus={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
                     >
                       <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                         Subject *
@@ -335,8 +305,6 @@ const Contact = () => {
                     </motion.div>
 
                     <motion.div
-                      whileFocus={{ scale: 1.02 }}
-                      transition={{ type: "spring", stiffness: 300 }}
                     >
                       <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                         Message *

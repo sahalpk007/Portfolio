@@ -1,13 +1,9 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
-import Experience from "./components/Experience";
-import Projects from "./components/Projects";
-import Education from "./components/Education";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
@@ -34,6 +30,11 @@ function App() {
   }, []);
 
   return (
+const Experience = React.lazy(() => import('./components/Experience'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Education = React.lazy(() => import('./components/Education'));
+const Contact = React.lazy(() => import('./components/Contact'));
+
     <div className="relative bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 min-h-screen">
       <Cursor />
       <AnimatePresence mode="wait">
@@ -58,28 +59,6 @@ function App() {
                   background: `radial-gradient(80vw circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(168, 85, 247, 0.15), transparent 40%)`,
                 }}
               />
-              {/* Animated mesh gradient */}
-              <div className="absolute inset-0 opacity-30">
-                <motion.div
-                  className="absolute top-0 left-0 w-full h-full"
-                  style={{
-                    background: `
-                      radial-gradient(circle at 20% 50%, rgba(236, 72, 153, 0.3) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
-                      radial-gradient(circle at 40% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)
-                    `,
-                  }}
-                  animate={{
-                    scale: [1, 1.1, 1],
-                    rotate: [0, 5, 0],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </div>
               {/* Floating geometric shapes */}
               <div className="absolute inset-0 overflow-hidden">
                 {[...Array(20)].map((_, i) => (
@@ -144,8 +123,12 @@ function App() {
                 <Skills />
                 <Experience />
                 <Projects />
-                <Education />
-                <Contact />
+ <React.Suspense fallback={<div>Loading...</div>}>
+ <Experience />
+ <Projects />
+ <Education />
+ <Contact />
+ </React.Suspense>
               </main>
               <Footer />
             </div>

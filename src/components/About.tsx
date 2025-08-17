@@ -74,21 +74,6 @@ const About = () => {
     <section id="about" className="py-16 sm:py-20 md:py-24 relative overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/50 to-black"></div>
-      
-      {/* Animated mesh gradients */}
-      <motion.div
-        className="absolute inset-0 opacity-20"
-        animate={{
-          background: [
-            'radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)',
-            'radial-gradient(circle at 80% 80%, rgba(147, 51, 234, 0.3) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 80%, rgba(6, 182, 212, 0.3) 0%, transparent 50%)',
-            'radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.3) 0%, transparent 50%)'
-          ]
-        }}
-        transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
         <motion.div
           className="max-w-7xl mx-auto"
@@ -234,14 +219,7 @@ const About = () => {
                     background: 'conic-gradient(from 0deg, #3b82f6, #8b5cf6, #06b6d4, #ec4899, #3b82f6)',
                     padding: '4px'
                   }}
-                  animate={{
-                    boxShadow: [
-                      '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)',
-                      '0 0 30px rgba(139, 92, 246, 0.7), 0 0 60px rgba(236, 72, 153, 0.5), 0 0 90px rgba(59, 130, 246, 0.3)',
-                      '0 0 25px rgba(6, 182, 212, 0.6), 0 0 50px rgba(59, 130, 246, 0.4), 0 0 75px rgba(139, 92, 246, 0.2)',
-                      '0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.3), 0 0 60px rgba(6, 182, 212, 0.2)'
-                    ]
-                  }}
+                  animate={{ opacity: [0.3, 0.8, 0.3] }}
                   transition={{
                     duration: 4,
                     repeat: Infinity,
@@ -290,7 +268,7 @@ const About = () => {
                 />
                 
                 {/* Orbiting light particles */}
-                {[...Array(8)].map((_, i) => (
+                {[...Array(4)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="absolute w-2 h-2 sm:w-3 sm:h-3 rounded-full"
@@ -306,25 +284,11 @@ const About = () => {
                       filter: 'blur(0.5px)'
                     }}
                     animate={{
-                      rotate: 360,
-                      scale: [0.5, 1.5, 0.5],
+ rotate: 360 * (i + 1), // Give each particle a unique rotation
+ scale: [0.8, 1.2, 0.8], // Simplified scale animation
                       opacity: [0.4, 1, 0.4]
                     }}
                     transition={{
-                      rotate: {
-                        duration: 8,
-                        repeat: Infinity,
-                        ease: "linear",
-                        delay: i * 0.3
-                      },
-                      scale: {
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: i * 0.2
-                      },
-                      opacity: {
-                        duration: 2,
                         repeat: Infinity,
                         ease: "easeInOut",
                         delay: i * 0.2

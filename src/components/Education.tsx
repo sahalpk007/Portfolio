@@ -71,15 +71,8 @@ const Education = () => {
       id="education"
       className="py-16 sm:py-20 md:py-24 relative overflow-hidden"
     >
-      {/* Background */}
+      {/* Static Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
-
-      {/* Animated Background Elements */}
-      <motion.div
-        className="absolute top-1/4 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"
-        animate={{ x: [0, -50, 0], y: [0, 50, 0] }}
-        transition={{ duration: 20, repeat: Infinity }}
-      />
 
       <div
         className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
@@ -143,10 +136,7 @@ const Education = () => {
                   key={index}
                   className="group relative p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-gray-900/80 to-black/80 backdrop-blur-sm border border-white/10 rounded-2xl hover:border-purple-500/50 transition-all duration-500"
                   variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.01 }}
-                  data-cursor="pointer"
                 >
-                  {/* Background Gradient */}
                   <motion.div
                     className={`absolute inset-0 bg-gradient-to-br ${edu.color} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity duration-500`}
                   />
@@ -157,8 +147,6 @@ const Education = () => {
                         <motion.div
                           className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${edu.color} rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}
                           whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                        >
                           <GraduationCap size={24} className="text-white" />
                         </motion.div>
                         <div>
@@ -190,8 +178,6 @@ const Education = () => {
                     <motion.div
                       className={`px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r ${edu.color} rounded-xl font-bold text-base sm:text-lg text-white`}
                       whileHover={{ scale: 1.05 }}
-                    >
-                      {edu.grade}
                     </motion.div>
                   </div>
 
@@ -209,9 +195,6 @@ const Education = () => {
                         <motion.li
                           key={achievementIndex}
                           className="flex items-start gap-2 sm:gap-3 text-gray-300 text-sm sm:text-base"
-                          initial={{ opacity: 0, x: -20 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{ delay: achievementIndex * 0.1 }}
                         >
                           <div
                             className={`w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r ${edu.color} rounded-full mt-2 flex-shrink-0`}
@@ -246,8 +229,6 @@ const Education = () => {
                   key={index}
                   className="group relative p-4 sm:p-6 bg-gradient-to-br from-gray-900/50 to-black/50 backdrop-blur-sm border border-white/10 rounded-xl hover:border-purple-500/50 transition-all duration-500"
                   variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.02 }}
-                  data-cursor="pointer"
                 >
                   {/* Background Gradient */}
                   <motion.div
@@ -258,7 +239,6 @@ const Education = () => {
                     <motion.div
                       className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${cert.color} rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300`}
                       whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
                     >
                       <Award size={20} className="text-white" />
                     </motion.div>
