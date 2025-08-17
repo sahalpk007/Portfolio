@@ -71,19 +71,12 @@ const Hero = () => {
             key={i}
             className="absolute"
             initial={{
-              x:
- Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1920), // Use window.innerWidth if defined,
- y:
-                Math.random() *
-                (typeof window !== "undefined" ? window.innerHeight : 1080), // Use window.innerHeight if defined
-              scale: 0.3 + Math.random() * 0.7,
+              x: Math.random() * (typeof window !== "undefined" ? window.innerWidth : 1920),
+              y: Math.random() * (typeof window !== "undefined" ? window.innerHeight : 1080),
+              opacity: 0,
+              scale: 0.3
             }}
             animate={{
- x: Math.random() *
-                (typeof window !== "undefined" ? window.innerWidth : 1920),
- y: Math.random() *
-              rotate: 360,
               scale: [0.3, 1, 0.3],
               opacity: [0.5, 1, 0.5], // Add opacity animation
             }}
