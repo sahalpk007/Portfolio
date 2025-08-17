@@ -8,6 +8,11 @@ import Footer from "./components/Footer";
 import Cursor from "./components/Cursor";
 import Preloader from "./components/Preloader";
 
+const Experience = React.lazy(() => import('./components/Experience'));
+const Projects = React.lazy(() => import('./components/Projects'));
+const Education = React.lazy(() => import('./components/Education'));
+const Contact = React.lazy(() => import('./components/Contact'));
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -30,11 +35,6 @@ function App() {
   }, []);
 
   return (
-const Experience = React.lazy(() => import('./components/Experience'));
-const Projects = React.lazy(() => import('./components/Projects'));
-const Education = React.lazy(() => import('./components/Education'));
-const Contact = React.lazy(() => import('./components/Contact'));
-
     <div className="relative bg-gradient-to-br from-slate-950 via-purple-950 to-slate-900 min-h-screen">
       <Cursor />
       <AnimatePresence mode="wait">
