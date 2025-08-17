@@ -82,7 +82,7 @@ const Hero = () => {
             animate={{
  x: Math.random() *
                 (typeof window !== "undefined" ? window.innerWidth : 1920),
-                Math.random() *
+ y: Math.random() *
               rotate: 360,
               scale: [0.3, 1, 0.3],
               opacity: [0.5, 1, 0.5], // Add opacity animation
